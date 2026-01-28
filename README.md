@@ -148,21 +148,4 @@ project/
 
 4. If failed → Shows refined output after one retry
 
----
 
-## ✅ What This Demonstrates
-
-* Agent-based thinking
-* Structured I/O design
-* Deterministic pipelines
-* Real-world AI evaluation loop
-* UI + AI integration
-
----
-
-If you want, I can also give you:
-
-* ✅ Full Python code
-* ✅ Streamlit UI
-* ✅ Gradio UI
-* ✅ GitHub-ready project structure
