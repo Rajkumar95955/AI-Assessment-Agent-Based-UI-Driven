@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assessment - Educational Content Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎓 AI Educational Content Generator</h1>
+            <p>Agent-based content generation with automated review</p>
+        </header>
+
+        <!-- Input Form -->
+        <section class="input-section">
+            <h2>📝 Generate Content</h2>
+            <form id="generateForm">
+                <div class="form-group">
+                    <label for="grade">Grade Level</label>
+                    <select id="grade" required>
+                        <option value="">Select Grade</option>
+                        <option value="1">Grade 1</option>
+                        <option value="2">Grade 2</option>
+                        <option value="3">Grade 3</option>
+                        <option value="4" selected>Grade 4</option>
+                        <option value="5">Grade 5</option>
+                        <option value="6">Grade 6</option>
+                        <option value="7">Grade 7</option>
+                        <option value="8">Grade 8</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="topic">Topic</label>
+                    <input 
+                        type="text" 
+                        id="topic" 
+                        placeholder="e.g., Types of angles" 
+                        value="Types of angles"
+                        required
+                    >
+                </div>
+                <button type="submit" id="submitBtn">
+                    <span class="btn-text">🚀 Generate Content</span>
+                    <span class="btn-loading" style="display: none;">⏳ Processing...</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Pipeline Visualization -->
+        <section class="pipeline-section" id="pipelineSection" style="display: none;">
+            <h2>🔄 Agent Pipeline</h2>
+            <div class="pipeline-flow">
+                <div class="pipeline-step" id="step1">
+                    <div class="step-icon">🤖</div>
+                    <div class="step-label">Generator</div>
+                    <div class="step-status">Pending</div>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-step" id="step2">
+                    <div class="step-icon">🔍</div>
+                    <div class="step-label">Reviewer</div>
+                    <div class="step-status">Pending</div>
+                </div>
+                <div class="pipeline-arrow" id="refineArrow" style="display: none;">→</div>
+                <div class="pipeline-step" id="step3" style="display: none;">
+                    <div class="step-icon">✨</div>
+                    <div class="step-label">Refinement</div>
+                    <div class="step-status">Pending</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section class="results-section" id="resultsSection" style="display: none;">
+            
+            <!-- Initial Generation -->
+            <div class="result-card" id="initialCard">
+                <div class="card-header">
+                    <h3>📄 Initial Generated Content</h3>
+                    <span class="agent-badge generator">Generator Agent</span>
+                </div>
+                <div class="card-content">
+                    <div class="content-block">
+                        <h4>Explanation</h4>
+                        <p id="initialExplanation"></p>
+                    </div>
+                    <div class="content-block">
+                        <h4>Multiple Choice Questions</h4>
+                        <div id="initialMcqs"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Initial Review -->
+            <div class="result-card" id="reviewCard">
+                <div class="card-header">
+                    <h3>🔍 Review Results</h3>
+                    <span class="agent-badge reviewer">Reviewer Agent</span>
+                </div>
+                <div class="card-content">
+                    <div class="review-status" id="reviewStatus"></div>
+                    <div class="scores-grid" id="reviewScores"></div>
+                    <div class="feedback-list" id="reviewFeedback"></div>
+                </div>
+            </div>
+
+            <!-- Refined Content (if applicable) -->
+            <div class="result-card refined-card" id="refinedCard" style="display: none;">
+                <div class="card-header">
+                    <h3>✨ Refined Content</h3>
+                    <span class="agent-badge refiner">After Refinement</span>
+                </div>
+                <div class="card-content">
+                    <div class="content-block">
+                        <h4>Explanation</h4>
+                        <p id="refinedExplanation"></p>
+                    </div>
+                    <div class="content-block">
+                        <h4>Multiple Choice Questions</h4>
+                        <div id="refinedMcqs"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Refined Review (if applicable) -->
+            <div class="result-card" id="refinedReviewCard" style="display: none;">
+                <div class="card-header">
+                    <h3>🔍 Refined Review Results</h3>
+                    <span class="agent-badge reviewer">Reviewer Agent (Pass 2)</span>
+                </div>
+                <div class="card-content">
+                    <div class="review-status" id="refinedReviewStatus"></div>
+                    <div class="scores-grid" id="refinedReviewScores"></div>
+                    <div class="feedback-list" id="refinedReviewFeedback"></div>
+                </div>
+            </div>
+
+            <!-- Final Result -->
+            <div class="result-card final-card" id="finalCard">
+                <div class="card-header">
+                    <h3>🎯 Final Result</h3>
+                    <span class="final-status" id="finalStatus"></span>
+                </div>
+                <div class="card-content">
+                    <p id="finalSummary"></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
